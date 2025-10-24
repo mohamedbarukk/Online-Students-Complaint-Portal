@@ -1,0 +1,71 @@
+.student-layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: #f9fafb;
+  overflow: hidden;
+}
+
+/* Sidebar Area */
+.student-sidebar-section {
+  width: 240px;
+  background: #0f172a;
+  color: #fff;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-right: 1px solid #1e293b;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main Content Area */
+.student-main {
+  margin-left: 240px;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 240px);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Header (Top Navigation) */
+.student-top-header {
+  height: 64px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Page Content */
+.student-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem;
+  background-color: #f9fafb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .student-sidebar-section {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .student-main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .student-content {
+    padding: 1rem;
+  }
+}

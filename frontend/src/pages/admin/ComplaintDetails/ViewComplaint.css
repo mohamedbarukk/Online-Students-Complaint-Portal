@@ -1,0 +1,250 @@
+/* src/pages/admin/ComplaintDetails/ViewComplaint.css */
+
+.vc-page {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  background-color: #f4f6f9;
+  min-height: 100vh;
+}
+
+/* === Header === */
+.vc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.vc-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827; /* ✅ Black title */
+  letter-spacing: 0.5px;
+}
+
+/* === Main Card === */
+.vc-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+.vc-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* === Complaint Details === */
+.vc-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+  align-items: center;
+}
+
+.vc-row:last-child {
+  border-bottom: none;
+}
+
+.vc-label {
+  flex-basis: 180px;
+  color: #475569;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.vc-value {
+  flex: 1;
+  color: #0f172a;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* === Status & Urgency Badges === */
+.vc-status,
+.vc-urgency {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: capitalize;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.vc-urgency.low {
+  background: #ecfdf5;
+  color: #047857;
+}
+.vc-urgency.normal {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+.vc-urgency.high {
+  background: #fef3c7;
+  color: #92400e;
+}
+.vc-urgency.critical {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.vc-status.submitted {
+  background: #f3f4f6;
+  color: #374151;
+}
+.vc-status.under-process,
+.vc-status.under-review {
+  background: #fff3cd;
+  color: #856404;
+}
+.vc-status.resolved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* === Action Buttons === */
+.vc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: background 0.25s, transform 0.15s;
+}
+.btn:hover {
+  background: #1e40af;
+  transform: translateY(-1px);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn.escalate-btn {
+  background: #f97316;
+}
+.btn.escalate-btn:hover {
+  background: #ea580c;
+}
+
+.btn.view-history-btn {
+  background: #6b7280;
+}
+.btn.view-history-btn:hover {
+  background: #4b5563;
+}
+
+/* === Textarea Sections === */
+.vc-textarea-section {
+  margin-top: 35px;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+.vc-textarea-section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 12px;
+  border-left: 4px solid #2563eb;
+  padding-left: 10px;
+}
+
+.vc-list {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 12px;
+  border: 1px solid #e5e7eb;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.vc-note,
+.vc-reply {
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f8fafc;
+  border-left: 4px solid #2563eb;
+  transition: background 0.2s;
+}
+.vc-note:hover,
+.vc-reply:hover {
+  background: #f1f5f9;
+}
+
+.vc-note-meta,
+.vc-reply-meta {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.vc-note-body,
+.vc-reply-body {
+  color: #1e293b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* === Textareas === */
+.vc-textarea-section textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.vc-textarea-section textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.vc-btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.vc-none {
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* === Loading / Error === */
+.vc-loading,
+.vc-error {
+  text-align: center;
+  font-size: 16px;
+  color: #64748b;
+  margin-top: 100px;
+}
+.vc-error {
+  color: #b91c1c;
+}

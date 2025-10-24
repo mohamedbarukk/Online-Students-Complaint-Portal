@@ -1,0 +1,91 @@
+.reports-page {
+  padding: 28px;
+  font-family: "Poppins", sans-serif;
+  color: #0f172a;
+}
+
+.reports-title {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  color: #6b2dd6; /* accent color */
+}
+
+.reports-panel {
+  max-width: 980px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(10, 20, 40, 0.06);
+}
+
+.reports-panel h3 {
+  margin: 0 0 12px 0;
+  color: #233044;
+}
+
+.reports-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  flex: 1;
+}
+
+.control label {
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #475569;
+}
+.control input[type="date"],
+.control select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f8fafc;
+}
+
+.reports-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.secondary {
+  background: #edf2ff;
+  color: #1e40af;
+  border: 1px solid #c7d2fe;
+}
+
+.btn.success {
+  background: #10b981;
+  color: white;
+}
+
+.btn.danger {
+  background: #ef4444;
+  color: white;
+}
+
+.reports-message {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #374151;
+}
+

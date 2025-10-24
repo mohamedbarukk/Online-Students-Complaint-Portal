@@ -1,0 +1,198 @@
+/* === Dashboard Container === */
+.admin-dashboard-container {
+  background: linear-gradient(to bottom right, #f8fbff, #eef3ff);
+  padding: 30px;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* === Loading & Error Boxes === */
+.loading-box,
+.error-box {
+  text-align: center;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  color: #444;
+  font-weight: 500;
+}
+
+/* === Top Section (Intro + Summary) === */
+.dashboard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+/* === Intro Section === */
+.intro-section {
+  flex: 1.5;
+  background: transparent;
+}
+
+.intro-section h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0a2342;
+  margin-bottom: 10px;
+}
+
+.intro-section p {
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feature-list li {
+  font-size: 0.95rem;
+  color: #333;
+  background: #eaf1ff;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.feature-list .bullet {
+  color: #007bff;
+  margin-right: 8px;
+}
+
+/* === Complaint Summary Section === */
+.summary-section {
+  flex: 0.8;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  min-width: 280px;
+}
+
+.summary-section h3 {
+  font-size: 1.2rem;
+  color: #0a2342;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.summary-card {
+  padding: 18px;
+  border-radius: 14px;
+  color: white;
+  text-align: center;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
+.summary-card h4 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.summary-card p {
+  font-size: 1.4rem;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+}
+
+.summary-card.pending {
+  background-color: #f39c12;
+}
+.summary-card.process {
+  background-color: #2980b9;
+}
+.summary-card.resolved {
+  background-color: #27ae60;
+}
+.summary-card.total {
+  background-color: #8e44ad;
+}
+
+/* === Recent Complaints Section === */
+.recent-complaints {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+}
+
+.recent-complaints h3 {
+  font-size: 1.2rem;
+  color: #0a2342;
+  margin-bottom: 15px;
+}
+
+.recent-complaints ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recent-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9faff;
+  border-radius: 12px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  transition: 0.3s ease;
+}
+
+.recent-item:hover {
+  background: #eef3ff;
+}
+
+.complaint-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.complaint-info .date {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.status-badge {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-width: 100px;
+  text-align: center;
+  color: #fff;
+}
+
+.status-badge.pending {
+  background-color: #f39c12;
+}
+.status-badge.under-process {
+  background-color: #2980b9;
+}
+.status-badge.resolved {
+  background-color: #27ae60;
+}
+
+.no-complaints {
+  color: #777;
+  text-align: center;
+  padding: 10px;
+}

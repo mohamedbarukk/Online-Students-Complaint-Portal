@@ -1,0 +1,240 @@
+/* ==========================
+   All Complaints Page Styles (Card Layout)
+   ========================== */
+.allcomplaints-page {
+  padding: 30px;
+  font-family: "Poppins", sans-serif;
+  background: #f9fafc;
+  min-height: 100vh;
+}
+
+/* ---------- Header ---------- */
+.page-header {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.page-header h1 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* ---------- Complaints Container ---------- */
+.complaints-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* ---------- Complaint Card ---------- */
+.complaint-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.complaint-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- Card Header ---------- */
+.complaint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.complaint-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #123a6b;
+  margin: 0;
+}
+
+.complaint-date {
+  font-size: 13px;
+  color: #777;
+}
+
+/* ---------- Card Body ---------- */
+.complaint-body {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* ---------- Tags Section ---------- */
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.status-tag,
+.urgency-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* ---------- Status Colors ---------- */
+.status-tag.submitted {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.status-tag.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-tag.under-process {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.status-tag.under-review {
+  background: #fff4e5;
+  color: #b36b00;
+}
+
+.status-tag.escalated {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.status-tag.resolved {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* ---------- Urgency Colors ---------- */
+.urgency-tag.low {
+  background: #e0f7fa;
+  color: #00796b;
+}
+
+.urgency-tag.normal {
+  background: #fff9c4;
+  color: #f57f17;
+}
+
+.urgency-tag.high {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.urgency-tag.critical {
+  background: #fbe9e7;
+  color: #bf360c;
+}
+
+/* ---------- 📎 Attachment Link ---------- */
+.attachment-link {
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.attachment-link a {
+  font-size: 13px;
+  color: #0d47a1;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+}
+
+.attachment-link a:hover {
+  color: #002171;
+  text-decoration: underline;
+}
+
+/* ---------- Card Action Buttons ---------- */
+.card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* ---------- Take Action Button ---------- */
+.vc-view-btn {
+  background: #090b44;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vc-view-btn:hover {
+  background: #0d47a1;
+  transform: scale(1.05);
+}
+
+/* ---------- Delete Button ---------- */
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.delete-btn img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg)
+    brightness(0%) contrast(100%);
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+/* ---------- Empty State ---------- */
+.empty-state {
+  text-align: center;
+  color: #777;
+  padding: 40px;
+  font-size: 16px;
+}
+
+.empty-state.error {
+  color: #c62828;
+}

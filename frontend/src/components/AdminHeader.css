@@ -1,0 +1,33 @@
+.admin-header {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 16px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "Poppins", sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Text styling */
+.welcome-text {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Responsive layout fix */
+@media (max-width: 768px) {
+  .admin-header {
+    padding: 12px 20px;
+  }
+
+  .welcome-text {
+    font-size: 1rem;
+  }
+}

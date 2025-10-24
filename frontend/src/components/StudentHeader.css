@@ -1,0 +1,19 @@
+.student-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: #ffffff;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.student-header h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #123a6b;
+  margin: 0;
+}

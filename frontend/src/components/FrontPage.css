@@ -1,0 +1,275 @@
+/* ==============================
+   Global Reset & Variables
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --accent1: rgb(122, 148, 167);
+  --accent2: rgb(122, 148, 167);
+  --white: #ffffff;
+  --text-light: rgba(255, 255, 255, 0.95);
+}
+
+/* ==============================
+   Body & Wrapper
+============================== */
+body {
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  color: var(--white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.frontpage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==============================
+   Navbar
+============================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.8rem;
+  background: transparent;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  user-select: none;
+  color: var(--white);
+}
+
+/* Buttons */
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.6rem 1.3rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  font-size: 0.95rem;
+}
+
+.btn.filled {
+  background: var(--white);
+  color: var(--accent2);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.btn.filled:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.btn.outline {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: var(--white);
+  background: transparent;
+}
+
+.btn.outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ==============================
+   Hero Section
+============================== */
+.hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 6rem;
+  gap: 3rem;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 50%;
+  animation: fadeSlide 1.2s ease-in-out;
+}
+
+.hero-text h1 {
+  font-size: 4.2rem;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+  font-weight: 800;
+  color: var(--white);
+}
+
+.hero-text p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+  opacity: 0.95;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ==============================
+   Hero Image
+============================== */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 640px; /* ⬆ Increased size */
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  animation: floatIn 1.4s ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.05);
+}
+
+/* ==============================
+   Footer
+============================== */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  background: rgba(255, 255, 255, 0.08);
+  margin-top: auto;
+}
+
+/* ==============================
+   Animations
+============================== */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================
+   Responsive Design
+============================== */
+@media (max-width: 1200px) {
+  .hero {
+    padding: 3rem 4rem;
+  }
+  .hero-image img {
+    width: 560px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero {
+    padding: 2.5rem 3rem;
+    gap: 2rem;
+  }
+
+  .hero-text h1 {
+    font-size: 3.4rem;
+  }
+
+  .hero-image img {
+    width: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero-image img {
+    width: 480px;
+    margin-top: 1rem;
+  }
+
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .hero-image img {
+    width: 400px;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.1rem;
+  }
+}
