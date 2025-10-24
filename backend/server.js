@@ -1,6 +1,6 @@
 // server.js
 // ============================================================
-// 🌐 Student Grievance Portal — Backend (Unified, Fixed)
+//  Student Grievance Portal — Backend (Unified, Fixed)
 // ============================================================
 
 require("dotenv").config();
@@ -19,7 +19,7 @@ const PDFDocument = require("pdfkit");
 const app = express();
 
 // ============================================================
-// ⚙️ Middleware
+//  Middleware
 // ============================================================
 app.use(cors());
 app.use(express.json());
@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // ============================================================
-// 🗄️ MySQL Connection Pool
+//  MySQL Connection Pool
 // ============================================================
 let db;
 (async () => {
@@ -41,20 +41,20 @@ let db;
       waitForConnections: true,
       connectionLimit: 10,
     });
-    console.log("✅ MySQL connected successfully");
+    console.log(" MySQL connected successfully");
   } catch (err) {
-    console.error("❌ Database connection failed:", err.message);
+    console.error(" Database connection failed:", err.message);
     process.exit(1);
   }
 })();
 
 // ============================================================
-// 🔑 JWT Secret
+//  JWT Secret
 // ============================================================
 const JWT_SECRET = process.env.JWT_SECRET || "supersecretkey";
 
 // ============================================================
-// 📁 Multer File Upload Configuration
+//  Multer File Upload Configuration
 // ============================================================
 // We store only the filename in DB. Static middleware serves them from /uploads/<filename>
 const storage = multer.diskStorage({
@@ -72,7 +72,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // ============================================================
-// 🧩 Verify JWT Middleware
+//  Verify JWT Middleware
 // ============================================================
 function verifyToken(req, res, next) {
   const header = req.headers.authorization;
@@ -87,7 +87,7 @@ function verifyToken(req, res, next) {
 }
 
 // ============================================================
-// 🧰 Role Authorization
+//  Role Authorization
 // ============================================================
 function authorizeRoles(...roles) {
   return (req, res, next) => {
@@ -111,7 +111,7 @@ function allowSelfOrAdmin(paramIdName = "id") {
 }
 
 // ============================================================
-// 📧 Email Setup (Gmail App Password or other SMTP)
+//  Email Setup (Gmail App Password or other SMTP)
 // ============================================================
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -131,16 +131,16 @@ async function sendEmailWithAttachments({ to, subject, html, text, attachments =
       html,
       attachments,
     });
-    console.log("📩 Email sent:", info.messageId);
+    console.log(" Email sent:", info.messageId);
     return true;
   } catch (error) {
-    console.error("❌ Email sending failed:", error.message);
+    console.error(" Email sending failed:", error.message);
     return false;
   }
 }
 
 // ============================================================
-// 👤 AUTH ROUTES
+//  AUTH ROUTES
 // ============================================================
 app.post("/signup", async (req, res) => {
   const { username, email, password, role } = req.body;
@@ -183,7 +183,7 @@ app.post("/login", async (req, res) => {
 });
 
 // ============================================================
-// 🎯 COMPLAINT ROUTES (Student & Admin)
+//  COMPLAINT ROUTES (Student & Admin)
 // ============================================================
 
 // Submit Complaint (student)
@@ -305,7 +305,7 @@ app.get("/api/replies/:id", async (req, res) => {
 });
 
 // ============================================================
-// 📊 STUDENT DASHBOARD Endpoints (stats + recent complaints)
+//  STUDENT DASHBOARD Endpoints (stats + recent complaints)
 // ============================================================
 app.get("/api/student/complaint-stats", verifyToken, authorizeRoles("student"), async (req, res) => {
   try {
@@ -402,7 +402,7 @@ app.get("/api/student/recent-complaints/:id", verifyToken, allowSelfOrAdmin("id"
 });
 
 // ============================================================
-// 👨‍💼 ADMIN DASHBOARD Endpoints (summary + recent complaints)
+//  ADMIN DASHBOARD Endpoints (summary + recent complaints)
 // ============================================================
 app.get("/api/admin/summary", verifyToken, authorizeRoles("faculty", "hod", "principal", "admin", "super_admin"), async (req, res) => {
   try {
@@ -445,7 +445,7 @@ app.get("/api/admin/recent-complaints", verifyToken, authorizeRoles("faculty", "
 });
 
 // ============================================================
-// 👨‍💼 ADMIN / FACULTY ROUTES (full management)
+//  ADMIN / FACULTY ROUTES (full management)
 // ============================================================
 
 // Get All Complaints (updated to include attachments array)
@@ -534,7 +534,7 @@ app.put("/api/admin/complaints/:id/status", verifyToken, authorizeRoles("faculty
 });
 
 // ============================================================
-// 🗒️ INTERNAL NOTES & PUBLIC REPLIES ROUTES
+//  INTERNAL NOTES & PUBLIC REPLIES ROUTES
 // ============================================================
 
 // Get internal notes (admin)
@@ -637,7 +637,7 @@ app.get("/api/public-replies/:id", async (req, res) => {
 });
 
 // ============================================================
-// 📦 ADMIN REPORT EXPORT (CSV / PDF) — with Anonymous handling
+//  ADMIN REPORT EXPORT (CSV / PDF) — with Anonymous handling
 // ============================================================
 app.get("/api/admin/reports/export", verifyToken, authorizeRoles("faculty", "hod", "principal", "admin", "super_admin"), async (req, res) => {
   try {
@@ -723,7 +723,7 @@ app.get("/api/admin/reports/export", verifyToken, authorizeRoles("faculty", "hod
 });
 
 // ============================================================
-// 🚨 ESCALATION ROUTE
+//  ESCALATION ROUTE
 // ============================================================
 // Now includes attachment(s) in emails if present
 app.post("/api/admin/complaints/escalate", verifyToken, authorizeRoles("faculty", "hod", "principal", "admin", "super_admin"), async (req, res) => {
@@ -758,7 +758,7 @@ app.post("/api/admin/complaints/escalate", verifyToken, authorizeRoles("faculty"
     // update urgency
     await db.query("UPDATE complaints SET urgency = 'High' WHERE id = ?", [complaintId]);
 
-    const subject = notifyAll ? "🚨 Complaint Escalation - All Authorities Notified" : `🚨 Complaint Escalated to ${higherAuthority}`;
+    const subject = notifyAll ? " Complaint Escalation - All Authorities Notified" : ` Complaint Escalated to ${higherAuthority}`;
     const text = `
 Complaint ID: ${complaint.id}
 Title: ${complaint.title}
@@ -783,7 +783,7 @@ Escalated By: ${req.user.username || req.user.id}
 });
 
 // ============================================================
-// 🚀 Server Start
+//  Server Start
 // ============================================================
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running at: http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(` Server running at: http://localhost:${PORT}`));
